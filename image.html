@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <title>HTML/CSSの復習|画像</title>
+</head>
+<body>
+    <header><h1 class="ffDotGothic16">HTML/CSSの復習</h1></header>
+    <div class="layoutWrap">
+    <main>
+    <h2>トランプの画像</h2>
+    <p class="back" ><img id="target" src="img/card_back.png" alt="トランプの裏面"></a></p>
+    </main>
+    <aside><h3>各ページへのリンク</h3><ul>
+        <li><a href="index.html">文章</a></li>
+        <li><a href="image.html">画像</a></li>
+        <li><a href="table.html">表</a></li>
+        <li><a href="put_cards.html">画像の複数配置</a></li>
+    </ul></aside>
+    </div>
+    <footer><p class="ffDotGothic16"><small>Nagisa Marushima</small></p></footer>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+    'use strict'
+    let cards = ['spade_01','spade_10','spade_11','spade_12','spade_13'];
+
+        
+
+
+    document.addEventListener('click',function(){
+    let imgNum = Math.floor(Math.random()*5)
+    document.getElementById('target').src ='img/card_' + cards[imgNum] + '.png';
+    
+    })
+
+</script>
+</body>
+</html>

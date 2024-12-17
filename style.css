@@ -1,0 +1,120 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+body{
+    background-color: aqua;
+}
+div .inline{
+    display: inline;
+    text-align: center;
+}
+.cards img{
+    width: 100px;
+    height: 150px;
+}
+.ffDotGothic16{
+    text-align: center;
+    font-family: 'DotGothic16', sans-serif;
+}
+header,footer{
+    font-family: 'Dela Gothic One',fantasy;
+}
+header{
+    font-size: 50px;
+}
+.layoutWrap{
+    display: flex;
+    width: 1240px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+main{
+    flex-basis: 800px;
+    text-align: center;
+    background-color: white;
+}
+aside{
+    flex-basis: 400px;
+    height: 150px;
+}
+.back{
+    text-align: center;
+}
+.table,tr,th,td{
+    border: solid 1px;
+/* border-radiusがかからない理由を考える 結論１：仕様 */
+}
+
+.table{
+    display: inline-block;
+    padding: 100px;
+}
+
+td,th{
+    text-align: center;
+    padding:5px;
+}
+
+.cards{
+    text-align: center;
+    background-color: green;
+    border: 5px double gold;
+    border-radius: 8px;
+}
+.flash{
+    font-size: 1.5em;
+    color: red;
+}
+h1{
+    font: 60px bold;
+}
+h2{
+    font: 30px bold;
+}
+h3{
+    font: 20px bold;
+}
+
+@media only screen and (max-width: 640px){
+    main{
+        max-width: 600px;
+    }
+    li{
+        display: inline;
+    }
+
+    .layoutWrap{
+        display: block;
+        width: 100%;
+    }
+    .table{
+        padding: 0;
+    }
+    h1{
+        font-size: 50px;
+    }
+    
+    h2{
+        font-size: 20px;
+    }
+    h3{
+        font-size: 18px;
+    }
+    .cards img{
+        max-width: 15%;
+        height: auto;
+    }
+}
+
+
+
+#poker{
+    display: inline-block;
+    background-color: blue;
+    flex-basis: 400px;
+    height: 100px;
+    overflow: hidden scroll;
+}
+
+.pokerLW{
+    max-width: 840px;
+}

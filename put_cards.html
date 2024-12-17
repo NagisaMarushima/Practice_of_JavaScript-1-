@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <title>HTML/CSSの復習|画像の複数配置</title>
+</head>
+<body>
+    <header><h1 class="ffDotGothic16">HTML/CSSの復習</h1></header>
+    <div class="layoutWrap pokerLW">
+    <main>
+    <h2><span class="flash">ロイヤルストレートフラッシュ</span></h2>
+    <div class="cards" id="cards">
+    <img src="img/card_spade_01.png" alt="spade_01"><img src="img/card_spade_10.png" alt="spade_10"><img src="img/card_spade_11.png" alt="spade_11"><img src="img/card_spade_12.png" alt="spade_12"><img src="img/card_spade_13.png" alt="spade_13">
+    </div>
+    <p>ポーカーでは、手札を同じマークで10・J・Q・K・Aと揃えると、<br>
+        「ロイヤルストレートフラッシュ」という役になります</p>
+    </main>
+    <div class="poker">
+    <aside><h3>各ページへのリンク</h3><ul>
+        <li><a href="index.html">文章</a></li>
+        <li><a href="image.html">画像</a></li>
+        <li><a href="table.html">表</a></li>
+        <li><a href="put_cards.html">画像の複数配置</a></li>
+    </ul></aside>
+    <section>
+        <div id="poker">
+           
+        </div>
+    </section>
+    <div>
+    </div>
+    <footer><p class="ffDotGothic16"><small>Nagisa Marushima</small></p></footer>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        'use strict'
+
+        // 1,randomにカードを表示　2,カードを配列にして、役を判定 　3,役名をログボックスに追記していく。
+
+
+    let cards = ['spade_01','spade_10','spade_11','spade_12','spade_13'];
+
+
+    document.getElementById('cards').addEventListener('click',function(){
+    // for(c=1;c<11;c++){
+
+    document.getElementById('cards').innerHTML ="";
+    // document.getElementById('poker').innerHTML =""
+    let role =[];
+
+    for(let i=1;i<6;i++){
+    let imgNum = Math.floor(Math.random()*5);
+    role.push(cards[imgNum]);
+    document.getElementById('cards').innerHTML +='<img src="img/card_' + cards[imgNum] + '.png">';
+
+        //1,数字を並び替え　2,役の判定(RSF,4C,FH,F,3C,2P,1P)　
+
+    }
+    console.log(role.sort());
+    // document.getElementById('poker').innerHTML +=  role + '<br>'; //roleはランダムなカード名が入った配列になった！
+
+
+    let count = {};
+    role.forEach(function(i){
+        count[i] = (count[i] || 0) + 1;
+    });
+
+    console.log(count);
+
+    if(Object.keys(count).length === 5){
+        document.getElementById('poker').innerHTML = "ロイヤルストレートフラッシュ！<br>"
+    }else if(Object.values(count).includes(4) === true){
+        document.getElementById('poker').innerHTML = "フォーカード！<br>"
+    }else if(Object.values(count).includes(3) && Object.values(count).includes(2) === true){
+         document.getElementById('poker').innerHTML = "フルハウス！<br>"
+    }else if(Object.values(count).includes(3) === true){
+         document.getElementById('poker').innerHTML = "スリーカード！<br>"
+    }else if(Object.keys(count).length === 4){
+         document.getElementById('poker').innerHTML = "ワンペア！<br>"
+    }else{
+        document.getElementById('poker').innerHTML = "ツーペア！<br>"
+    }
+
+    })
+
+
+    </script>
+</body>
+</html>
